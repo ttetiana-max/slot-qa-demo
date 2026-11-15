@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucky Reels — QA demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #12101f; color: #f1f0f7; display: flex; justify-content: center; padding: 24px; margin: 0; }
+    main { width: 100%; max-width: 480px; }
+    h1 { margin: 0 0 16px; font-size: 24px; }
+    canvas { width: 100%; background: #2a2640; border-radius: 12px; display: block; }
+    .row { display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+    label { font-size: 14px; color: #b9b6cc; }
+    input { background: #2a2640; border: 1px solid #4a4566; color: inherit; border-radius: 8px; padding: 8px; width: 120px; }
+    button { background: #7b5cff; color: #fff; border: 0; border-radius: 8px; padding: 10px 24px; font-size: 16px; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: wait; }
+    .result { min-height: 24px; margin-top: 12px; font-weight: 600; }
+    .error { min-height: 20px; color: #ff6b81; margin-top: 6px; }
+    .fair { margin-top: 16px; font-size: 12px; color: #8d89a6; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Lucky Reels</h1>
+    <canvas data-cy="reels" width="480" height="160"></canvas>
+
+    <div class="row">
+      <span>Balance: <strong data-cy="balance">…</strong></span>
+    </div>
+
+    <div class="row">
+      <label>Bet <input data-cy="bet-input" type="number" value="10" min="1" max="100" /></label>
+      <label>Client seed <input data-cy="client-seed-input" type="text" /></label>
+      <button data-cy="spin-button" disabled>Spin</button>
+    </div>
+
+    <div class="result" data-cy="result"></div>
+    <div class="error" data-cy="error"></div>
+
+    <div class="fair">
+      Server seed hash: <span data-cy="server-seed-hash"></span><br />
+      Nonce: <span data-cy="nonce"></span>
+    </div>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

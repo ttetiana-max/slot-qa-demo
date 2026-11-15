@@ -1,0 +1,22 @@
+{
+  "_comment": "Game specification as agreed with the game math team. Tests use this as the independent source of truth, NOT the game's own config.",
+  "reelCount": 3,
+  "reel": [
+    { "id": "CHERRY", "weight": 6 },
+    { "id": "LEMON", "weight": 6 },
+    { "id": "BELL", "weight": 4 },
+    { "id": "STAR", "weight": 3 },
+    { "id": "SEVEN", "weight": 1 }
+  ],
+  "paytable": {
+    "CHERRY": 10,
+    "LEMON": 10,
+    "BELL": 25,
+    "STAR": 50,
+    "SEVEN": 400
+  },
+  "declaredRtp": 0.95875,
+  "minBet": 1,
+  "maxBet": 100,
+  "startingBalance": 1000
+}

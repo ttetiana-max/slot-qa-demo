@@ -1,0 +1,24 @@
+{
+  "name": "slot-qa-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo slot game with a Cypress + TypeScript test suite: wallet API, game math (RTP, paytable), provably fair verification and UI.",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "node scripts/run-tests.mjs run",
+    "test:open": "node scripts/run-tests.mjs open",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p cypress"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "cypress": "^14.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  },
+  "allowScripts": {
+    "cypress@14.5.4": true,
+    "esbuild@0.28.2": true
+  }
+}

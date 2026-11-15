@@ -1,0 +1,29 @@
+# Runs the whole Cypress suite on every push and pull request.
+name: E2E tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Installs dependencies and the Cypress binary (cached), then runs `npm test`:
+      # scripts/run-tests.mjs starts the game server, waits until it answers, runs Cypress and stops the server.
+      - uses: cypress-io/github-action@v6
+        with:
+          command: npm test
+
+      # Keep screenshots of failed tests for investigation.
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
